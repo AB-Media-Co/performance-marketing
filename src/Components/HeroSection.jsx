@@ -34,7 +34,7 @@ const HeroSection = () => {
 
     return (
         <div
-            className="text-white relative overflow-hidden"
+            className="text-white relative overflow-hidden min-h-screen"
             style={{ backgroundColor: content.bgColor }}
         >
             {/* grid overlay */}
@@ -43,68 +43,68 @@ const HeroSection = () => {
             </div>
 
             {/* logo */}
-            <div className="flex justify-center pt-6">
+            <div className="flex justify-center pt-4 sm:pt-6">
                 <img
                     src={content.logoSrc}
                     alt={content.logoAlt}
-                    className="h-12 md:h-16"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16"
                 />
             </div>
 
-            <div className="mx-auto px-6 lg:px-20 py-10 relative z-10">
-                <div className="flex justify-between gap-2 items-start">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 py-6 sm:py-8 lg:py-10 relative z-10 ">
+                <div className="flex flex-col xl:flex-row xl:justify-between gap-8 xl:gap-12 items-start">
                     {/* Left column */}
-                    <div className="flex flex-col flex-1 gap-4">
-                        <h1 className="text-lg md:text-[52px] font-black leading-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent animate-fade-in">
+                    <div className="flex flex-col w-full xl:flex-1 gap-4 sm:gap-6">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px] font-black leading-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent animate-fade-in">
                             {content.headline}
                         </h1>
-                        <div className="flex w-72 items-center px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50 backdrop-blur-sm">
+                        
+                        <div className="flex w-full max-w-xs sm:max-w-sm items-center px-3 sm:px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50 backdrop-blur-sm">
                             <div
                                 className={`w-2 h-2 rounded-full mr-2 animate-pulse ${content.badgeColor}`}
                             />
-                            <span className="text-sm text-gray-300">{content.badgeText}</span>
+                            <span className="text-xs sm:text-sm text-gray-300">{content.badgeText}</span>
                         </div>
 
-                        {/* Trusted by section */}
-                        <div className="pt-8 space-y-4">
-                            <p className="text-gray-400 text-sm uppercase tracking-wide font-medium">
+                        {/* Trusted by section - moved to bottom on mobile */}
+                        <div className="pt-6 sm:pt-8 space-y-3 sm:space-y-4 order-3 xl:order-none">
+                            <p className="text-gray-400 text-xs sm:text-sm uppercase tracking-wide font-medium">
                                 {content.trustedByText}
                             </p>
-                            <div className="flex items-center space-x-8">
+                            <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8 overflow-x-auto pb-2">
                                 {content.trustedLogos.map((logo, idx) => (
                                     <img
                                         key={idx}
                                         src={logo.src}
                                         alt={logo.alt}
-                                        className="h-14 object-contain rounded-4xl  hover:opacity-100 transition-opacity duration-300"
+                                        className="h-8 sm:h-10 md:h-12 lg:h-14 object-contain rounded-lg flex-shrink-0 hover:opacity-100 transition-opacity duration-300"
                                     />
                                 ))}
-
                             </div>
                         </div>
                     </div>
 
                     {/* Right column */}
-                    <div className="flex flex-col gap-8 flex-none max-w-[33rem]">
-                        <p className="text-xl lg:text-[24px] text-gray-300 leading-relaxed max-w-2xl font-semibold">
+                    <div className="flex flex-col gap-6 sm:gap-8 w-full xl:flex-none xl:max-w-[33rem] order-2 xl:order-none">
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed font-semibold">
                             {content.description}
                         </p>
 
-                        <div className="space-y-6">
-                            <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="space-y-4 sm:space-y-6">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                 {content.ctas.map((cta, idx) => (
                                     <button
                                         key={idx}
                                         onClick={cta.onClick}
-                                        className={`group inline-flex items-center justify-center px-6 py-4 rounded-xl text-sm font-${cta.variant === 'primary' ? 'bold' : 'semibold'
-                                            } transition-all duration-300 transform shadow-2xl ${cta.variant === 'primary'
+                                        className={`group inline-flex items-center justify-center px-4 sm:px-6 py-3 sm:py-4 rounded-xl text-sm sm:text-base font-${cta.variant === 'primary' ? 'bold' : 'semibold'
+                                            } transition-all duration-300 transform shadow-2xl w-full sm:w-auto ${cta.variant === 'primary'
                                                 ? 'bg-white text-black hover:bg-gray-100 hover:shadow-white/20 hover:scale-105'
                                                 : 'border-2 border-gray-600 text-white hover:bg-white hover:text-black hover:border-white'
                                             }`}
                                     >
                                         <span className="relative z-10">{cta.text}</span>
                                         <svg
-                                            className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                                            className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -125,8 +125,6 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <style jsx>{`

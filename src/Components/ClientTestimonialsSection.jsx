@@ -62,7 +62,7 @@ export default function ClientTestimonialsSection() {
     };
 
     return (
-        <div className="bg-white text-[#131314]  p-8">
+        <div className="bg-white text-[#131314]  py-8">
             <div className="px-6 lg:px-20 mx-auto">
                 {/* Header */}
                 <div className="text-start mb-16">

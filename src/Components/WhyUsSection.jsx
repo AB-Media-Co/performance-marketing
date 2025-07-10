@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function WhyUsSection() {
     return (
-        <div className="bg-white text-black min-h-screen p-8">
+        <div className="bg-white text-black  md:py-8">
             <div className=" px-6 lg:px-20 mx-auto">
                 {/* Header */}
                 <div className="mb-12">
