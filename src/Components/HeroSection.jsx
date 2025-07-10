@@ -34,7 +34,7 @@ const HeroSection = () => {
 
     return (
         <div
-            className="text-white relative overflow-hidden min-h-screen"
+            className="text-white relative overflow-hidden "
             style={{ backgroundColor: content.bgColor }}
         >
             {/* grid overlay */}
